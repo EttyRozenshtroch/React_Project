@@ -14,7 +14,7 @@ const ProductList = () => {
             dispatch(fatchAllProducts())
     },[])
     return (
-<ul style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr",gap:"15px",listStyleType: "none"}}> 
+<ul style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr 1fr",gap:"15px",listStyleType: "none"}}> 
   {products.map(item=><li><Product item={item}/></li>)}</ul>   
     // </ImageList>
     //

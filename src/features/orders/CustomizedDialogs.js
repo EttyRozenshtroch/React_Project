@@ -10,6 +10,11 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import ProductListInCart from './ProductListInCart';
+import { useDispatch } from 'react-redux';
+import{addToCart} from "../orders/orderSlice";
+// import { AddShoppingCartIcon } from '@material-ui/icons';
+// import {AddShoppingCartIcon}from 
+import { AddShoppingCart } from '@mui/icons-material';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -49,8 +54,9 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function CustomizedDialogs() {
+export default function CustomizedDialogs({item}) {
   const [open, setOpen] = React.useState(false);
+  let dispatch=useDispatch();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -58,28 +64,26 @@ export default function CustomizedDialogs() {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
+      <IconButton aria-label="add to shopping cart" onClick={()=>{
+        dispatch(addToCart(item));
+      handleClickOpen()}}>
+  {/* <AddShoppingCartIcon /> */}
+<AddShoppingCart/>
+</IconButton>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
+          your cart
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <ProductListInCart/>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
+        
       </BootstrapDialog>
     </div>
   );

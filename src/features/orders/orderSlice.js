@@ -21,6 +21,7 @@ const orderSlice=createSlice({
                     if(item.id===action.payload.id){
                         item.qty++};})
             }
+            
         }
         },
         removeFromCart:{

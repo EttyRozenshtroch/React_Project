@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import{addProductToServer} from "./productSlice";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
@@ -17,10 +19,8 @@ const AddProduct = () => {
     <input {...register("name",{required:"first name is required"})} placeholder="enter name"/>
     <input {...register("description") }placeholder=" enter description"/>
     <input {...register("img")} placeholder="enter img url"/>
-    <input {...register("content")} placeholder="enter content"/>
+    <input {...register("calories")} placeholder="enter calories"/>
     <input type="number" {...register("price")} placeholder="enter price"/>
-    <input {...register("company")} placeholder="enter company"/>
-    <input {...register("prodDate")} placeholder="enter prodDate"/>
     <input type="submit" value="submit"/>
     </form>
     </> );

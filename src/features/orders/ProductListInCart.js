@@ -7,7 +7,7 @@ const ProductListInCart = ()=>{
 
     return(
         <>
-        <ul>
+        <ul style={{listStyleType:"none"}}>
             {products.map(item=><li key={item.id}><ProductInCart item={item}/></li>)}
         </ul>
         </>

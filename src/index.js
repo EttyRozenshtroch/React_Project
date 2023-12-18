@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import {store} from './app/store'
+import { BrowserRouter } from 'react-router-dom';
 
 // const store = createStore(
 //   combineReducers({ product: productReducer, mes: messageReducer }),//אפשר בעזרתו לחבר מספר רידוסרים לסטייט אחד
@@ -20,7 +21,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

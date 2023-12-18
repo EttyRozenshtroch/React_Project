@@ -22,7 +22,22 @@ export const addProductToServer=createAsyncThunk(
     'product/addProduct',
     async(item,thunkAPI)=>{
         const response=await axios.post("http://localhost:4000/product/",item);
+        console.log(response);
         return response.data;
+    }
+)
+export const updateProduct=createAsyncThunk(
+    'product/updateProduct',
+    async(item,thunkAPI)=>{
+        const response=await axios.post(`http://localhost:4000/product/${item}`);
+        console.log(response);
+        return response.data;
+    }
+)
+export const deleteProduct=createAsyncThunk(
+    'product/deleteProduct',
+    async(item,thunkAPI)=>{
+        const response = await axios.delete(`http://localhost:4000/product/${item}`)
     }
 )
 const productSlice=createSlice({
@@ -38,7 +53,7 @@ const productSlice=createSlice({
             }
         },
         deleteProduct:{},
-        updateProduct:{},
+        // updateProduct:{},
     },
     extraReducers:(builder)=>{
         builder.addCase(fatchAllProducts.fulfilled,
@@ -62,5 +77,5 @@ const productSlice=createSlice({
     }
 })
 
-export const{addProduct,deleteProduct,updateProduct}=productSlice.actions;
+export const{addProduct}=productSlice.actions;
 export default productSlice.reducer;

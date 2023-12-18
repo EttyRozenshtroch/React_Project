@@ -21,6 +21,7 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
+    console.log("1");
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
@@ -28,10 +29,12 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = () => {
+    console.log("1111");
     setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
+    console.log("22222");
     setAnchorElUser(null);
   };
 
